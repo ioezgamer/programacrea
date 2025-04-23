@@ -10,13 +10,15 @@ class CreateAsistenciasTable extends Migration
     {
         Schema::create('asistencias', function (Blueprint $table) {
             $table->id('asistencia_id');
-            $table->unsignedBigInteger('participante_id');
+            $table->foreignId('participant_id')
+                ->constrained('participants') // Laravel asume que es id()
+                ->onDelete('cascade');
+
             $table->date('fecha_asistencia');
             $table->enum('estado', ['Presente', 'Ausente', 'Justificado'])->default('Ausente')->after('fecha_asistencia');
             $table->timestamps();
 
-            // Clave foránea
-            $table->foreign('participante_id')->references('participante_id')->on('participants')->onDelete('cascade');
+           
         });
     }
 

@@ -22,7 +22,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('asistencia.attendance')" :active="request()->routeIs('asistencia')">
+                    <x-nav-link :href="route('asistencia.create')" :active="request()->routeIs('asistencia')">
                         {{ __('Asistencia') }}
                     </x-nav-link>
                 </div>

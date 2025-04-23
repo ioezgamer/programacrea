@@ -9,8 +9,8 @@ class Participante extends Model
 {
     use HasFactory;
 
-    protected $table = 'participante';
-    protected $primaryKey = 'participante_id';
+    protected $table = 'participants';
+    protected $primaryKey = 'participant_id';
 
     protected $fillable = [
         'fecha_de_inscripcion',

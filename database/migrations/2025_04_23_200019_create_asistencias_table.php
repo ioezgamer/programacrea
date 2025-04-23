@@ -12,11 +12,11 @@ class CreateAsistenciasTable extends Migration
             $table->id('asistencia_id');
             $table->unsignedBigInteger('participante_id');
             $table->date('fecha_asistencia');
-            $table->boolean('presente')->default(false);
+            $table->enum('estado', ['Presente', 'Ausente', 'Justificado'])->default('Ausente')->after('fecha_asistencia');
             $table->timestamps();
 
             // Clave foránea
-            $table->foreign('participante_id')->references('participante_id')->on('participante')->onDelete('cascade');
+            $table->foreign('participante_id')->references('participante_id')->on('participants')->onDelete('cascade');
         });
     }
 
